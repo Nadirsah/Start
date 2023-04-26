@@ -1,6 +1,6 @@
 @extends("back.layouts.master")
 @section("title","Panel")
 @section('content')
-Salam Aleykum
+<center>SALAM ALEYKUM</center>
 
 @endsection
