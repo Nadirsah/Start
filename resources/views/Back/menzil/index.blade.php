@@ -27,37 +27,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td><select data-column="0" name="kompleks" class="form-control filter-select">
-                                    <option value="">Kompleks seçin</option>
-                                    @foreach($kompleks as $data)
-                                    <option value="{{$data->title}}">{{$data->title}}</option>
-                                    @endforeach
-                                </select>
-                                <hr>
-                                <input type="text" class="form-control filter-input" data-column='0'>
-                            </td>
-                            <td> <select data-column="1" name="bina" class="form-control filter-select">
-                                    <option value="">Bina seçin</option>
-                                    @foreach($bina as $data)
-                                    <option value="{{$data->bina}}">{{$data->bina}}</option>
-                                    @endforeach
-                                </select>
-                                <hr>
-                                <input type="text" class="form-control filter-input" data-column='1'>
-                            </td>
-                            <td><select data-column="2" name="mehsul" class="form-control filter-select">
-                                    <option value="">Menzil seçin</option>
-                                    @foreach($menzil as $data)
-                                    <option value="{{$data->menzil}}">{{$data->menzil}}</option>
-                                    @endforeach
-                                </select>
-                                <hr>
-                                <input type="text" class="form-control filter-input" data-column='2'>
-                            </td>
-                            <td>
-
-
-                            </td>
+                           
                         </tr>
                         <tr>
                             <th>Kompleks</th>
@@ -101,59 +71,5 @@ swal('Message', "{{Session::get('message')}}", 'success', {
 });
 </script>
 @endif
-
-
-
-
-
-
-
-
-
 @endsection
 
-@section('javascript')
-
-
-<script>
-$(document).ready(function() {
-    $('#showAlert').click(function() {
-        alert('Merhaba! Bu bir jQuery Alert mesajıdır.');
-    });
-});
-</script>
-
-
-<script>
-$(document).ready(function() {
-    var table = $("#dataTable").DataTable({
-        'processing': true,
-        'serverSide': true,
-        columns: [{
-                data: "kompleks"
-            },
-            {
-                data: "bina"
-            },
-            {
-                data: "menzil"
-            }
-        ],
-    });
-    $('.filter-input').keyup(function() {
-        table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-    });
-
-
-    $('.filter-select').change(function() {
-        table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-    });
-});
-</script>
-
-
-@endsection

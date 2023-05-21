@@ -7,7 +7,9 @@ use App\Http\Controllers\Back\Kompleks;
 use App\Http\Controllers\Back\Bina;
 use App\Http\Controllers\Back\Menzil;
 use App\Http\Controllers\Back\Order;
+use App\Http\Controllers\Back\Menzil_sah;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,14 +45,16 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
      //Menzil
      Route::resource('/menzil',Menzil::class);
      Route::get('/deletemenzil/{id}', [Menzil::class, 'delete'])->name('delete.menzil');
+     //Menzil sahibi
+     Route::resource('/menzil_sah',Menzil_sah::class);
+     Route::get('/deletemenzil_sah/{id}', [Menzil_sah::class, 'delete'])->name('delete.menzil_sah');
 
      //Order
      Route::resource('/order',Order::class);
     
 });
 
-Route::post('/getbina', [Kompleks::class, 'getbina'])->name('getbina');
-Route::post('/getmenzil', [Kompleks::class, 'getmenzil'])->name('getmenzil');
+
 
 Route::get('/error',function(){
     return view('error');

@@ -36,7 +36,7 @@
                         <div class="mb-3">
                             <label for="title" class="form-label">Kompleks</label>
                             
-                            <select name="kompleks" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <select name="kompleks" class="form-control form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option selected>Kompleks Secin</option>
                                 @foreach($data as $item)
                                 <option value="{{$item->id}}">{{$item->title}}</option>

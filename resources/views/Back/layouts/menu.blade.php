@@ -39,7 +39,7 @@
                     <span>Menziller</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.menzil_sah.index')}}">
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                     <span>Ev sahibi</span></a>
             </li>

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('menzil_sah__models', function (Blueprint $table) {
             $table->id();
+            $table->string('kompleks');
+            $table->string('bina');
+            $table->string('menzil');
+            $table->string('name');
             $table->timestamps();
         });
     }

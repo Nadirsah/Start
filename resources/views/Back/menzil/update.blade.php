@@ -36,7 +36,7 @@
                         <div class="mb-3">
                             <label for="title" class="form-label">Kompleks</label>
 
-                            <select name="kompleks" class="form-select form-select-lg mb-3"
+                            <select name="kompleks" class="form-control form-select-lg mb-3"
                                 aria-label=".form-select-lg example">
                                 <option  >Kompleks Secin</option>
                                 @foreach($kompleks as $item)
@@ -54,7 +54,7 @@
                         <div class="mb-3">
                             <label for="title" class="form-label">Bina</label>
                            
-                            <select name="bina" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <select name="bina" class="form-select form-control-lg mb-3" aria-label=".form-select-lg example">
                                 <option >Bina Secin</option>
                                 @foreach($bina as $item)
                                 @if($menzil->bina == $item->id)

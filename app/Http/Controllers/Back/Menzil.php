@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\KompleksModel;
 use App\Models\BinaModel;
 use App\Models\MenzilModel;
+use App\Models\Menzil_sah_Model;
 
 
 class Menzil extends Controller
@@ -19,6 +20,7 @@ class Menzil extends Controller
         $bina=BinaModel::all();
         $kompleks=KompleksModel::all();
         $menzil=MenzilModel::all();
+        
         return view('back.menzil.index',compact('bina','kompleks','menzil'));
     }
 

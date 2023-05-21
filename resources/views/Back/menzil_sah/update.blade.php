@@ -21,38 +21,47 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Menzil</h1>
+    <h1 class="h3 mb-2 text-gray-800">Bina</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
 
         <div class="card-body">
 
-            <form action="{{route('admin.menzil.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.menzil_sah.update',$menzil_sah->id)}}" method="POST" enctype="multipart/form-data">
+                @method("PUT")
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="title" class="form-label">Kompleks</label>
-                           
-                            <select name="kompleks" class="form-control form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Kompleks Secin</option>
-                                @foreach($data as $item)
-                                <option value="{{$item->id}}">{{$item->title}}</option>
+
+                            <select name="kompleks" class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example">
+                                <option  >Kompleks Secin</option>
+                                @foreach($kompleks as $item)
+                                @if($menzil_sah->kompleks == $item->id)
+                                <option value="{{$item->id}}" selected>{{$item->title}}</option>
+                                @else
+                                <option value="{{$item->id}}" >{{$item->title}}</option>
+                                @endif
                                 @endforeach
                             </select>
-                          
+
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="title" class="form-label">Bina</label>
                            
-                            <select name="bina" class="form-control form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Bina Secin</option>
+                            <select name="bina" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option >Bina Secin</option>
                                 @foreach($bina as $item)
-                                <option value="{{$item->id}}">{{$item->bina}}</option>
+                                @if($menzil_sah->bina == $item->id)
+                                <option value="{{$item->id}}" selected>{{$item->bina}}</option>
+                                @else
+                                <option value="{{$item->id}}" >{{$item->bina}}</option>
+                                @endif
                                 @endforeach
                             </select>
                           
@@ -61,11 +70,31 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="title" class="form-label">Menzil</label>
-                            <input type="text" name='menzil' value="{{old('title')}}" class="form-control" id="title"
+                            <select name="menzil" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option >Menzil Secin</option>
+                                @foreach($menzil as $item)
+                                @if($menzil_sah->menzil == $item->id)
+                                <option value="{{$item->id}}" selected>{{$item->menzil}}</option>
+                                @else
+                                <option value="{{$item->id}}" >{{$item->menzil}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                          
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Menzil sahibi</label>
+                            <input type="text" name='name' value="{{$menzil_sah->name}}" class="form-control" id="title"
                                 aria-describedby="emailHelp" placeholder='Name'>
                             <span class="text-danger">@error('title'){{'Title sahəsi boş ola bilməz!'}}@enderror</span>
                         </div>
                     </div>
+
+
+
 
                 </div>
 

@@ -24,4 +24,6 @@ class MenzilModel extends Model
     {
         return $this->hasOne('App\Models\BinaModel', 'id', 'bina');
     }
+
+   
 }

@@ -21,14 +21,14 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Menzil</h1>
+    <h1 class="h3 mb-2 text-gray-800">Menzil sahibi</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
 
         <div class="card-body">
 
-            <form action="{{route('admin.menzil.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.menzil_sah.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -58,11 +58,25 @@
                           
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="title" class="form-label">Menzil</label>
-                            <input type="text" name='menzil' value="{{old('title')}}" class="form-control" id="title"
-                                aria-describedby="emailHelp" placeholder='Name'>
+                           
+                            <select name="menzil" class="form-control form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>Bina Secin</option>
+                                @foreach($menzil as $item)
+                                <option value="{{$item->id}}">{{$item->menzil}}</option>
+                                @endforeach
+                            </select>
+                          
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Ad</label>
+                            <input type="text" name='name' value="{{old('name')}}" class="form-control" id="title"
+                                aria-describedby="emailHelp" placeholder='Ad'>
                             <span class="text-danger">@error('title'){{'Title sahəsi boş ola bilməz!'}}@enderror</span>
                         </div>
                     </div>
