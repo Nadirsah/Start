@@ -34,6 +34,7 @@ class Profil extends Controller
     {
         $data=new User();
         $data->name=$request->name;
+        $data->role=$request->role;
         $data->password=Hash::make($request->password);
         $data->save();
         return  redirect()->route('admin.profil.index')->with('message', 'Məlumat əlavə olundu!');
@@ -63,6 +64,7 @@ class Profil extends Controller
     {
         $data=User::findOrFail($id);
         $data->name=$request->name;
+        $data->role=$request->role;
         $data->password=Hash::make($request->password);
         $data->update();
         return  redirect()->route('admin.profil.index')->with('message', 'Məlumat yenilendi!');

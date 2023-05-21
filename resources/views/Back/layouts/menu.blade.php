@@ -23,9 +23,30 @@
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                     <span>Ayarlar</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('admin.kompleks.index')}}">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Kompleks</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('admin.bina.index')}}">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Binalar</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('admin.menzil.index')}}">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Menziller</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Ev sahibi</span></a>
+            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+           
+
+          
 
            
             <!-- Divider -->
@@ -71,7 +92,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name  }}-{{Auth::user()->role  }}</span>
                                 
                             </a>
                             <!-- Dropdown - User Information -->

@@ -3,6 +3,10 @@
 use App\Http\Controllers\Back\AuthController;
 use App\Http\Controllers\Back\Ayarlar;
 use App\Http\Controllers\Back\Profil;
+use App\Http\Controllers\Back\Kompleks;
+use App\Http\Controllers\Back\Bina;
+use App\Http\Controllers\Back\Menzil;
+use App\Http\Controllers\Back\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('isLogin','isRole')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('postlogin');
 });
@@ -30,8 +34,23 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
     //Profil
     Route::resource('/profil',Profil::class);
     Route::get('/delete/{id}', [Profil::class, 'delete'])->name('delete');
-   
+     //Kompleks
+     Route::resource('/kompleks',Kompleks::class);
+     Route::get('/deletekompleks/{id}', [Kompleks::class, 'delete'])->name('delete.kompleks');
+     //Bina
+     Route::resource('/bina',Bina::class);
+     Route::get('/deletebina/{id}', [Bina::class, 'delete'])->name('delete.bina');
+     //Menzil
+     Route::resource('/menzil',Menzil::class);
+     Route::get('/deletemenzil/{id}', [Menzil::class, 'delete'])->name('delete.menzil');
+
+     //Order
+     Route::resource('/order',Order::class);
+    
 });
+
+Route::post('/getbina', [Kompleks::class, 'getbina'])->name('getbina');
+Route::post('/getmenzil', [Kompleks::class, 'getmenzil'])->name('getmenzil');
 
 Route::get('/error',function(){
     return view('error');

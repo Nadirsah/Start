@@ -2,7 +2,7 @@
 @section("title","Panel")
 @section('content')
 
-          
+
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -22,6 +22,19 @@
                             <input type="text" name='name' value="{{old('name')}}" class="form-control" id="name"
                                 aria-describedby="emailHelp" placeholder='Ad'>
                             <span class="text-danger">@error('name'){{'Ad sahəsi boş ola bilməz!'}}@enderror</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                        <label for="name" class="form-label">Vezife</label>
+                            <select name="role" class="form-select " id="">
+                                <option value="">Secin</option>
+                                <option value="menzil_sahibi">Menzil sahibi</option>
+                                <option value="director">Director</option>
+                                <option value="menecer">Menecer</option>
+                                <option value="muhasib">Muhasib</option>
+                                <option value="emekdas">Emekdas</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
