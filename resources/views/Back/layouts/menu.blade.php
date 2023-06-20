@@ -1,5 +1,4 @@
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -43,17 +42,8 @@
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                     <span>Ev sahibi</span></a>
             </li>
-
-           
-
-          
-
-           
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-          
-
         </ul>
         <!-- End of Sidebar -->
 

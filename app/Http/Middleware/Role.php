@@ -14,8 +14,8 @@ class Role
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    { if (Auth::check() && Auth::user()->role == "menzil_sahibi") {
+    public function handle(Request $request, Closure $next,): Response
+    { if (Auth::check() && Auth::user()->role === "menzil_sahibi") {
         return redirect()->route('admin.order.index');
     }
         return $next($request);

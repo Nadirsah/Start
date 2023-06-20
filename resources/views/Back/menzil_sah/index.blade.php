@@ -5,9 +5,6 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-
-
-
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -108,41 +105,19 @@ swal('Message', "{{Session::get('message')}}", 'success', {
 @endif
 @endsection
 
-@section('javascript')
 
-<script>
-$(document).ready(function() {
-    var table = $("#dataTable").DataTable({
-        'processing': true,
-        'serverSide': true,
-        columns: [{
-                data: "kompleks"
-            },
-            {
-                data: "bina"
-            },
-            {
-                data: "menzil"
-            },
-            {
-                data: "menzil sahibi"
-            }
-        ],
-    });
-    $('.filter-input').keyup(function() {
-        table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-    });
+<!-- Page level plugins -->
+<!-- <script src="{{asset('back/')}}/vendor/chart.js/Chart.min.js"></script>
+<script src="{{asset('back/')}}/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
+
+<!-- Page level custom scripts -->
+<!-- <script src="{{asset('back/')}}/js/demo/chart-area-demo.js"></script>
+<script src="{{asset('back/')}}/js/demo/chart-pie-demo.js"></script>
+<script src="{{asset('back/')}}/js/demo/chart-bar-demo.js"></script>
+<script src="{{asset('back/')}}/js/demo/datatables-demo.js"></script> -->
 
 
-    $('.filter-select').change(function() {
-        table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-    });
-});
-</script>
 
 
-@endsection
+

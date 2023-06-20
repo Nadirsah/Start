@@ -18,10 +18,16 @@ class AuthController extends Controller
     {
 
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
-            return redirect()->route('admin.dashboard');
+if(auth()->user()->role=='director'){
+    return redirect()->route('admin.dashboard');
+}else if (auth()->user()->role=='menzil_sahibi'){
+    return redirect()->route('admin.order.index');
+}else{
+    return redirect()->route('admin.login')->withErrors('Istifadeci adi ve ya parol sehfdi');
+} 
         }
 
-        return redirect()->route('admin.login')->withErrors('Istifadeci adi ve ya parol sehfdi');
+        
 }
 
     public function destroy()

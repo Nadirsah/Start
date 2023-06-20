@@ -51,16 +51,53 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('back/')}}/js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="{{asset('back/')}}/vendor/chart.js/Chart.min.js"></script>
-<script src="{{asset('back/')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- data table -->
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="{{asset('back/')}}/js/demo/chart-area-demo.js"></script>
-<script src="{{asset('back/')}}/js/demo/chart-pie-demo.js"></script>
-<script src="{{asset('back/')}}/js/demo/chart-bar-demo.js"></script>
-<script src="{{asset('back/')}}/js/demo/datatables-demo.js"></script>
+<script>
+let table = new DataTable('#dataTable');
+</script>
+
+
+<script>
+$(document).ready(function() {
+    var table = $("#dataTable").DataTable({
+        'processing': true,
+        'serverSide': true,
+        columns: [{
+                data: "kompleks"
+            },
+            {
+                data: "bina"
+            },
+            {
+                data: "menzil"
+            },
+            {
+                data: "menzil sahibi"
+            }
+        ],
+    });
+    
+    $('.filter-input').keyup(function() {
+        table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+           
+    });
+
+
+    $('.filter-select').change(function() {
+        table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+    });
+});
+</script>
+
+
+
+
 @yield('javascript')
 
 
